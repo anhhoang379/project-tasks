@@ -1,13 +1,10 @@
-from django.utils.translation import gettext_lazy as _
-
-
 class TaskStatus:
-    NOT_STARTED = "Not Started"
-    IN_PROGRESS = "In Progress"
-    COMPLETED = "Completed"
+    NOT_STARTED = 0
+    IN_PROGRESS = 1
+    COMPLETED = 2
 
     CHOICES = (
-        (NOT_STARTED, _(NOT_STARTED)),
-        (IN_PROGRESS, _(IN_PROGRESS)),
-        (COMPLETED, _(COMPLETED)),
+        (NOT_STARTED, "not started"),
+        (IN_PROGRESS, "in progress"),
+        (COMPLETED, "completed"),
     )
