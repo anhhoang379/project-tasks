@@ -17,6 +17,7 @@ class Task(models.Model):
         choices=constants.TaskStatus.CHOICES,
         default=constants.TaskStatus.NOT_STARTED,
     )
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
