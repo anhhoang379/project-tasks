@@ -4,8 +4,7 @@ from api.views import (
     BulkTasksView,
     DeleteTasksView,
     TaskDetailView,
-    TaskFilterByDateView,
-    TaskFilterByKeywordView,
+    TaskFilterView,
     TaskListCreateView,
 )
 
@@ -14,14 +13,5 @@ urlpatterns = [
     path("tasks/<int:pk>/", TaskDetailView.as_view(), name="tasks-detail"),
     path("tasks/bulk/", BulkTasksView.as_view(), name="bulk_tasks"),
     path("tasks/delete/", DeleteTasksView.as_view(), name="delete_tasks"),
-    path(
-        "tasks-filter",
-        TaskFilterByKeywordView.as_view(),
-        name="task_filter_by_keyword",
-    ),
-    path(
-        "tasks-filter",
-        TaskFilterByDateView.as_view(),
-        name="task_filter_by_date",
-    ),
+    path("tasks-filter", TaskFilterView.as_view(), name="task_filter"),
 ]

@@ -9,28 +9,11 @@ from ..models import Task
 from ..serializers import TaskSerializer
 
 
-class TaskFilterByKeywordView(APIView):
-    def get(self, request):
-        keyword = request.query_params.get("keyword", "")
-        if not keyword:
-            return Response(
-                "No keyword provided.", status=status.HTTP_400_BAD_REQUEST
-            )
-        tasks = Task.objects.filter(description__icontains=keyword)
-        serializer = TaskSerializer(tasks, many=True)
-        return Response(serializer.data)
-
-
-class TaskFilterByDateView(APIView):
+class TaskFilterView(APIView):
     def get(self, request):
         keyword = request.query_params.get("keyword", "")
         start_date_str = request.query_params.get("startDate", "")
         end_date_str = request.query_params.get("endDate", "")
-
-        if not keyword:
-            return Response(
-                "No keyword provided.", status=status.HTTP_400_BAD_REQUEST
-            )
 
         try:
             start_date = (
@@ -49,7 +32,13 @@ class TaskFilterByDateView(APIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        tasks = Task.objects.filter(description__icontains=keyword)
+        if not keyword and not start_date:
+            return Response(
+                "No keyword provided.", status=status.HTTP_400_BAD_REQUEST
+            )
+        else:
+            tasks = Task.objects.filter(description__icontains=keyword)
+
         if start_date:
             tasks = tasks.filter(created_at__date__gte=start_date)
         if end_date:
