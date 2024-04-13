@@ -3,3 +3,5 @@ from .task import *
 from .bulk_tasks import BulkTasksView
 from .delete_tasks import DeleteTasksView
 from .filter_tasks import TaskFilterView
+from .login import LoginView
+from .signup import SignUpView

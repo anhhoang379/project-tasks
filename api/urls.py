@@ -6,6 +6,8 @@ from api.views import (
     TaskDetailView,
     TaskFilterView,
     TaskListCreateView,
+    LoginView,
+    SignUpView,
 )
 
 urlpatterns = [
@@ -14,4 +16,7 @@ urlpatterns = [
     path("tasks/bulk/", BulkTasksView.as_view(), name="bulk_tasks"),
     path("tasks/delete/", DeleteTasksView.as_view(), name="delete_tasks"),
     path("tasks-filter", TaskFilterView.as_view(), name="task_filter"),
+
+    path("users/login/", LoginView.as_view(), name="user-login"),
+    path('users/', SignUpView.as_view(), name='create_user'),
 ]
