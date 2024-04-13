@@ -5,3 +5,5 @@ from .delete_tasks import DeleteTasksView
 from .filter_tasks import TaskFilterView
 from .login import LoginView
 from .user import UserView
+from .change_password import ChangePasswordView
+from .avatar_change import AvatarChangeView
