@@ -15,6 +15,7 @@ EXTERNAL_APPS = [
     "django_celery_beat",
     "django_celery_results",
     "api",
+    "todo_app",
 ]
 INTERNAL_APPS = []
 
