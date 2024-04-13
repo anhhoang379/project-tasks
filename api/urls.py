@@ -7,7 +7,7 @@ from api.views import (
     TaskFilterView,
     TaskListCreateView,
     LoginView,
-    SignUpView,
+    UserView,
 )
 
 urlpatterns = [
@@ -18,5 +18,5 @@ urlpatterns = [
     path("tasks-filter", TaskFilterView.as_view(), name="task_filter"),
 
     path("users/login/", LoginView.as_view(), name="user-login"),
-    path('users/', SignUpView.as_view(), name='create_user'),
+    path('users/', UserView.as_view(), name='user'),
 ]
